@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Asalkar Healthy Hub</title>
+    <!-- Link to your main stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Link to Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Use the same header style for consistency -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="homepage.html" style="display: flex; align-items: center; text-decoration: none; color: white;">
+                    <img src="logo.jpg" alt="Asalkar Healthy Hub" />
+                    <span>Asalkar Healthy Hub</span>
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="homepage.html" class="nav-link">Home</a></li>
+                    <li><a href="homepage.html#products" class="nav-link">Products</a></li>
+                    <li><a href="auth.html" class="nav-link auth-btn">Login / Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact-page-main">
+        <div class="contact-container">
+            <!-- Left Side: Form -->
+            <div class="contact-form-wrapper">
+                <h2 class="section-title">Get In Touch</h2>
+                <p>Have questions or feedback? Fill out the form below, and we'll get back to you as soon as possible.</p>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input id="name" name="name" required type="text" placeholder="e.g., John Doe" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input id="email" name="email" required type="email" placeholder="e.g., john.doe@example.com" />
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required rows="5" placeholder="Your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="contact-submit-btn">Send Message</button>
+                </form>
+                <div id="responseMsg"></div>
+            </div>
+
+            <!-- Right Side: Info & Map -->
+            <div class="contact-info-wrapper">
+                <h3 class="contact-info-title">Contact Information</h3>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 8421429515</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>asalakrhh@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Vita, Maharashtra, India - 415311</span>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15233.916361839178!2d74.53696783955078!3d17.299553600000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc166a05ce5853b%3A0x818292410a74e50!2sVita%2C%20Maharashtra%20415311!5e0!3m2!1sen!2sin!4v1677321854321!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Corrected and improved form submission script
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const formData = new FormData(form);
+            const responseMsgDiv = document.getElementById('responseMsg');
+
+            // Show a "sending" message
+            responseMsgDiv.innerText = "Sending your message...";
+            responseMsgDiv.className = 'info';
+
+            fetch('backend/submit_contact.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.text())
+            .then(data => {
+                // Check for a success keyword from the backend
+                if (data.toLowerCase().includes('success')) {
+                    responseMsgDiv.innerText = "Thank you! Your message has been sent successfully.";
+                    responseMsgDiv.className = 'success';
+                    form.reset();
+                } else {
+                    responseMsgDiv.innerText = data; // Show the error from backend
+                    responseMsgDiv.className = 'error';
+                }
+            })
+            .catch(err => {
+                responseMsgDiv.innerText = "An error occurred. Please try again later.";
+                responseMsgDiv.className = 'error';
+            });
+        });
+
+        // Simple animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.contact-form-wrapper, .contact-info-wrapper').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+    
+    <!-- Use the same copyright bar for consistency -->
+    <p class="copyright">© 2025 Asalkar Healthy Hub. All rights reserved.</p>
+</body>
+</html>

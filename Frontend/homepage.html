@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asalkar Healthy Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Loading Animation -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <p>Loading Pure Goodness...</p>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="logo animate-slide-in">
+        <img src="logo.jpg" alt="Asalkar Healthy Hub" />
+        <span>Asalkar Healthy Hub</span>
+      </div>
+      <nav class="nav">
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#products" class="nav-link">Products</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="auth.html" class="nav-link auth-btn">Login / Sign Up</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Floating particles background -->
+  <div class="particles-bg">
+    <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  </div>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="word">Pure</span> <span class="word">Cold-Pressed</span> <span class="word">Oils</span>
+        <span class="word">&</span> <span class="word">Organic</span> <span class="word">Products</span>
+      </h1>
+      <p class="hero-subtitle">We deliver health through purity – straight from farm to your kitchen.</p>
+      <div class="hero-stats">
+        <div class="stat-item"><i class="fas fa-leaf"></i><span class="stat-number" data-target="100">0</span><span class="stat-label">% Natural</span></div>
+        <div class="stat-item"><i class="fas fa-award"></i><span class="stat-number" data-target="5">0</span><span class="stat-label">Star Quality</span></div>
+        <div class="stat-item"><i class="fas fa-heart"></i><span class="stat-number" data-target="1000">0</span><span class="stat-label">+ Happy Customers</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- This is the first "Why Choose Us" section. It can be removed if you only want the one in the footer. -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Our Commitment</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+          <h3>100% Organic</h3><p>Pure, chemical-free ingredients straight from nature</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-snowflake"></i></div>
+          <h3>Cold-Pressed</h3><p>Traditional methods preserve all natural nutrients</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+          <h3>FSSAI Certified</h3><p>Follows strict food safety guidelines</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-home"></i></div>
+          <h3>Family Business</h3><p>Made with love in Maharashtra, India</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <div class="container">
+      <h2 class="section-title">Our Premium Products</h2>
+      <div class="product-filter">
+        <button class="filter-btn active" data-filter="all">All Products</button>
+        <button class="filter-btn" data-filter="coconut">Coconut</button>
+        <button class="filter-btn" data-filter="groundnut">Groundnut</button>
+        <button class="filter-btn" data-filter="sunflower">Sunflower</button>
+        <button class="filter-btn" data-filter="safflower">Safflower</button>
+      </div>
+      <div class="products-grid">
+        <!-- All product cards remain here -->
+        <div class="card product-card" data-category="coconut" data-id="1" data-name="Coconut Oil - 250ml" data-price="120" data-image="coconut-oil-250ml.jpg"><div class="card-image"><img src="coconut-oil-250ml.jpg" alt="Coconut Oil 250ml"><div class="card-overlay"><div class="card-actions"><button class="wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button></div></div></div><div class="card-content"><h3>Coconut Oil - 250ml</h3><p class="product-description">Cold-pressed & pure</p><div class="price-section"><span class="price">₹120</span><span class="price-per-ml">₹0.48/ml</span></div><button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div></div>
+        <div class="card product-card" data-category="coconut" data-id="2" data-name="Coconut Oil - 500ml" data-price="220" data-image="coconut-oil-500ml.jpg"><div class="card-image"><img src="coconut-oil-500ml.jpg" alt="Coconut Oil 500ml"><div class="card-overlay"><div class="card-actions"><button class="wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button></div></div><div class="popular-badge">Popular</div></div><div class="card-content"><h3>Coconut Oil - 500ml</h3><p class="product-description">Organic & fresh</p><div class="price-section"><span class="price">₹220</span><span class="price-per-ml">₹0.44/ml</span></div><button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div></div>
+        <div class="card product-card" data-category="coconut" data-id="3" data-name="Coconut Pend" data-price="100" data-image="coconut-pend.jpg"><div class="card-image"><img src="coconut-pend.jpg" alt="Coconut Oil Pend"><div class="card-overlay"><div class="card-actions"><button class="wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button></div></div></div><div class="card-content"><h3>Coconut Pend</h3><p class="product-description">Traditional coconut cake for cattle or fertilizer</p><div class="price-section"><span class="price">₹100</span></div><button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div></div>
+        <div class="card product-card" data-category="groundnut" data-id="4" data-name="Groundnut Oil - 500ml" data-price="210" data-image="groundnut-oil-500ml.jpg"><div class="card-image"><img src="groundnut-oil-500ml.jpg" alt="Groundnut Oil 500ml"><div class="card-overlay"><div class="card-actions"><button class="wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button></div></div></div><div class="card-content"><h3>Groundnut Oil - 500ml</h3><p class="product-description">Traditional cold-pressed</p><div class="price-section"><span class="price">₹210</span><span class="price-per-ml">₹0.42/ml</span></div><button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div></div>
+        <div class="card product-card" data-category="groundnut" data-id="5" data-name="Groundnut Oil - 5kg" data-price="950" data-image="groundnut-oil-5kg.jpg"><div class="card-image"><img src="groundnut-oil-5kg.jpg" alt="Groundnut Oil 5kg"><div class="card-overlay"><div class="card-actions"><button class="wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button></div></div><div class="bulk-badge">Bulk</div></div><div class="card-content"><h3>Groundnut Oil - 5kg</h3><p class="product-description">Premium quality</p><div class="price-section"><span class="price">₹950</span><span class="price-per-kg">₹190/kg</span></div><button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div></div>
+        <div class="card product-card" data-category="groundnut" data-id="6" data-name="Groundnut Pend" data-price="90" data-image="groundnut-pend.jpg"><div class="card-image"><img src="groundnut-pend.jpg" alt="Groundnut Pend"><div class="card-overlay"><div class="card-actions"><button class="wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button></div></div></div><div class="card-content"><h3>Groundnut Pend</h3><p class="product-description">Pure groundnut cake for cattle feed</p><div class="price-section"><span class="price">₹90</span></div><button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div></div>
+        <div class="card product-card" data-category="sunflower" data-id="7" data-name="Sunflower Oil - 250ml" data-price="100" data-image="sunflower-oil-250ml.jpg"><div class="card-image"><img src="sunflower-oil-250ml.jpg" alt="Sunflower Oil 250ml"><div class="card-overlay"><div class="card-actions"><button class="wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button></div></div></div><div class="card-content"><h3>Sunflower Oil - 250ml</h3><p class="product-description">Rich in nutrients</p><div class="price-section"><span class="price">₹100</span><span class="price-per-ml">₹0.40/ml</span></div><button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div></div>
+        <div class="card product-card" data-category="sunflower" data-id="8" data-name="Sunflower Oil - 500ml" data-price="180" data-image="sunflower-oil-500ml.jpg"><div class="card-image"><img src="sunflower-oil-500ml.jpg" alt="Sunflower Oil 500ml"><div class="card-overlay"><div class="card-actions"><button class="wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button></div></div></div><div class="card-content"><h3>Sunflower Oil - 500ml</h3><p class="product-description">Organic and healthy</p><div class="price-section"><span class="price">₹180</span><span class="price-per-ml">₹0.36/ml</span></div><button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div></div>
+        <div class="card product-card" data-category="sunflower" data-id="9" data-name="Sunflower Oil - 5kg" data-price="850" data-image="sunflower-oil-5kg.jpg"><div class="card-image"><img src="sunflower-oil-5kg.jpg" alt="Sunflower Oil 5kg"><div class="card-overlay"><div class="card-actions"><button class="wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button></div></div><div class="bulk-badge">Bulk</div></div><div class="card-content"><h3>Sunflower Oil - 5kg</h3><p class="product-description">Light & fresh</p><div class="price-section"><span class="price">₹850</span><span class="price-per-kg">₹170/kg</span></div><button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div></div>
+        <div class="card product-card" data-category="sunflower" data-id="10" data-name="Sunflower Pend" data-price="95" data-image="sunflower-pend.jpg"><div class="card-image"><img src="sunflower-pend.jpg" alt="Sunflower Pend"><div class="card-overlay"><div class="card-actions"><button class="wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button></div></div></div><div class="card-content"><h3>Sunflower Pend</h3><p class="product-description">Excellent for animal feed</p><div class="price-section"><span class="price">₹95</span></div><button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div></div>
+        <div class="card product-card" data-category="safflower" data-id="11" data-name="Safflower Oil - 500ml" data-price="200" data-image="safflower-oil-500ml.jpg"><div class="card-image"><img src="safflower-oil-500ml.jpg" alt="Safflower Oil 500ml"><div class="card-overlay"><div class="card-actions"><button class="wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button></div></div><div class="premium-badge">Premium</div></div><div class="card-content"><h3>Safflower Oil - 500ml</h3><p class="product-description">Great for heart health</p><div class="price-section"><span class="price">₹200</span><span class="price-per-ml">₹0.40/ml</span></div><button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div></div>
+        <div class="card product-card" data-category="safflower" data-id="12" data-name="Safflower Oil - 5kg" data-price="880" data-image="safflower-oil-5kg.jpg"><div class="card-image"><img src="safflower-oil-5kg.jpg" alt="Safflower Oil 5kg"><div class="card-overlay"><div class="card-actions"><button class="wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button></div></div><div class="bulk-badge">Bulk</div></div><div class="card-content"><h3>Safflower Oil - 5kg</h3><p class="product-description">Pure & cold-pressed</p><div class="price-section"><span class="price">₹880</span><span class="price-per-kg">₹176/kg</span></div><button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div></div>
+        <div class="card product-card" data-category="safflower" data-id="13" data-name="Safflower Pend" data-price="85" data-image="safflower-pend.jpg"><div class="card-image"><img src="safflower-pend.jpg" alt="Safflower Pend"><div class="card-overlay"><div class="card-actions"><button class="wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button></div></div></div><div class="card-content"><h3>Safflower Pend</h3><p class="product-description">100% natural safflower residue</p><div class="price-section"><span class="price">₹85</span></div><button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="container"><div class="newsletter-content"><h2>Stay Updated</h2><p>Get exclusive offers and health tips delivered to your inbox.</p><form class="newsletter-form"><input type="email" placeholder="Enter your email" required><button type="submit">Subscribe</button></form></div></div>
+  </section>
+
+  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+  <div class="floating-cart"><button class="cart-btn" id="cartBtn"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></button></div>
+  
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-modal-content">
+      <button class="close-cart-btn" id="closeCartBtn">×</button>
+      <h2>Your Cart</h2>
+      <div class="cart-items-container" id="cartItemsContainer"><p class="cart-empty-message">Your cart is empty.</p></div>
+      <div class="cart-footer"><div class="cart-total"><h3>Total: <span id="cartTotal">₹0.00</span></h3></div><button class="checkout-btn">Proceed to Checkout</button></div>
+    </div>
+  </div>
+
+  <footer class="about" id="about">
+    <div class="about-content">
+        <div class="about-hero-section"><h2 class="section-title">Our Story</h2></div>
+        <div class="about-grid">
+          <div class="about-card"><p><span class="highlight">Asalkar Healthy Hub</span> is a family-run business committed to delivering high-quality, cold-pressed oils from the finest natural ingredients. We focus on traditional methods to preserve nutrients in every drop.</p></div>
+          <div class="about-card"><p>All our products are made in <span class="highlight">Maharashtra, India</span>, and follow FSSAI food safety guidelines. We cater to health-conscious individuals looking for organic and chemical-free cooking oils.</p></div>
+          <div class="about-card"><p>Join us in our journey towards a healthier lifestyle—powered by <span class="highlight">purity and tradition</span>. Every bottle represents our commitment to your family's health and well-being.</p></div>
+        </div>
+
+        <!-- NEWLY ADDED "WHY CHOOSE US" SECTION FROM ABOUT.HTML -->
+        <div class="footer-features-section">
+          <h2 class="section-title">Why Choose Us?</h2>
+          <div class="footer-features-grid">
+            <div class="footer-feature-item">
+              <span class="footer-feature-icon">🌱</span>
+              <h3>100% Natural</h3>
+              <p>Pure, cold-pressed oils with no chemicals or preservatives</p>
+            </div>
+            <div class="footer-feature-item">
+              <span class="footer-feature-icon">🏭</span>
+              <h3>Traditional Methods</h3>
+              <p>Time-tested techniques that preserve maximum nutrients</p>
+            </div>
+            <div class="footer-feature-item">
+              <span class="footer-feature-icon">✅</span>
+              <h3>FSSAI Certified</h3>
+              <p>Meets all food safety and quality standards</p>
+            </div>
+            <div class="footer-feature-item">
+              <span class="footer-feature-icon">👨‍👩‍👧‍👦</span>
+              <h3>Family Business</h3>
+              <p>Three generations of expertise and care</p>
+            </div>
+          </div>
+        </div>
+        <!-- END OF NEW SECTION -->
+
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+    <!-- The copyright paragraph is now outside about-content for full-width background -->
+    <p class="copyright">© 2025 Asalkar Healthy Hub. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // The entire JavaScript block remains the same.
+    // No changes are needed here.
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- CORE PAGE FUNCTIONALITY ---
+      const loadingScreen = document.getElementById('loadingScreen');
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+      const backToTop = document.getElementById('backToTop');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const productCards = document.querySelectorAll('.product-card');
+
+      window.addEventListener('load', () => {
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => { loadingScreen.style.display = 'none'; }, 500);
+      });
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+
+      document.querySelectorAll('a.nav-link[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('visible', window.pageYOffset > 300);
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            const counters = entry.target.querySelectorAll('.stat-number:not(.animated)');
+            counters.forEach(counter => {
+              counter.classList.add('animated');
+              animateCounter(counter);
+            });
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll('.stat-item, .card, .about-card, .footer-feature-item').forEach(el => observer.observe(el));
+
+      function animateCounter(element) {
+        const target = parseInt(element.getAttribute('data-target'));
+        const duration = 2000;
+        let start = 0;
+        const stepTime = 20;
+        const increment = target / (duration / stepTime);
+        const timer = setInterval(() => {
+          start += increment;
+          if (start >= target) {
+            start = target;
+            clearInterval(timer);
+          }
+          element.textContent = Math.floor(start).toLocaleString();
+        }, stepTime);
+      }
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+          productCards.forEach(card => {
+            card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? 'block' : 'none';
+          });
+        });
+      });
+
+      // --- SHOPPING CART FUNCTIONALITY ---
+      const cartModal = document.getElementById('cartModal');
+      const cartBtn = document.getElementById('cartBtn');
+      const closeCartBtn = document.getElementById('closeCartBtn');
+      const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+      const cartItemsContainer = document.getElementById('cartItemsContainer');
+      const cartCountElement = document.querySelector('.cart-count');
+      const cartTotalElement = document.getElementById('cartTotal');
+      const cartEmptyMessage = document.querySelector('.cart-empty-message');
+
+      let cart = [];
+
+      cartBtn.addEventListener('click', () => cartModal.classList.add('show'));
+      closeCartBtn.addEventListener('click', () => cartModal.classList.remove('show'));
+      cartModal.addEventListener('click', (e) => {
+        if (e.target === cartModal) cartModal.classList.remove('show');
+      });
+      
+      addToCartBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const card = e.target.closest('.product-card');
+          addToCart({
+            id: card.dataset.id,
+            name: card.dataset.name,
+            price: parseFloat(card.dataset.price),
+            image: card.dataset.image
+          });
+          btn.innerHTML = '<i class="fas fa-check"></i> Added!';
+          btn.style.backgroundColor = 'var(--success)';
+          setTimeout(() => {
+            btn.innerHTML = '<i class="fas fa-shopping-cart"></i> Add to Cart';
+            btn.style.backgroundColor = '';
+          }, 1500);
+        });
+      });
+      
+      function addToCart(product) {
+        const existingItem = cart.find(item => item.id === product.id);
+        if (existingItem) existingItem.quantity++;
+        else cart.push({ ...product, quantity: 1 });
+        renderCart();
+      }
+
+      function renderCart() {
+        cartItemsContainer.innerHTML = ''; 
+        if (cart.length === 0) {
+            cartItemsContainer.appendChild(cartEmptyMessage);
+            cartEmptyMessage.style.display = 'block';
+        } else {
+            cartEmptyMessage.style.display = 'none';
+            cart.forEach(item => {
+                const cartItemEl = document.createElement('div');
+                cartItemEl.className = 'cart-item';
+                cartItemEl.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="cart-item-details"><h3>${item.name}</h3><p class="cart-item-price">₹${item.price.toFixed(2)}</p></div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn" data-id="${item.id}" data-action="decrease">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="quantity-btn" data-id="${item.id}" data-action="increase">+</button>
+                    </div>
+                    <button class="remove-item-btn" data-id="${item.id}">×</button>`;
+                cartItemsContainer.appendChild(cartItemEl);
+            });
+        }
+        updateCartState();
+      }
+
+      function updateCartState() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCountElement.textContent = totalItems;
+        if (totalItems > 0) {
+            cartCountElement.classList.add('bounce');
+            setTimeout(() => cartCountElement.classList.remove('bounce'), 500);
+        }
+        const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        cartTotalElement.textContent = `₹${totalPrice.toFixed(2)}`;
+      }
+      
+      cartItemsContainer.addEventListener('click', (e) => {
+        const target = e.target;
+        const id = target.dataset.id;
+        if (!id) return;
+        const item = cart.find(i => i.id === id);
+        if (target.matches('.quantity-btn')) {
+            if (target.dataset.action === 'increase') item.quantity++;
+            else if (target.dataset.action === 'decrease') {
+                item.quantity--;
+                if (item.quantity <= 0) cart = cart.filter(i => i.id !== id);
+            }
+        } else if (target.matches('.remove-item-btn')) {
+            cart = cart.filter(i => i.id !== id);
+        }
+        renderCart();
+      });
+
+      renderCart();
+    });
+  </script>
+</body>
+</html>

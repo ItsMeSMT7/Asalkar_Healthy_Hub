@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login & Sign Up - Asalkar Healthy Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+        --primary: #2c5f2d;
+        --primary-light: #52b69a;
+        --primary-dark: #1b4332;
+        --accent: #ffd60a;
+        --bg-light: #f8fffe;
+        --text-dark: #2d3436;
+        --text-light: #ffffff;
+        --border-light: #e9ecef;
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+        --border-radius: 12px;
+        --transition: all 0.6s ease-in-out;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      background: var(--gradient-hero, linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .auth-container {
+      background-color: var(--bg-light);
+      border-radius: var(--border-radius);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 800px;
+      min-height: 520px;
+    }
+
+    h1 {
+      font-weight: 700;
+      margin: 0 0 20px;
+      color: var(--primary-dark);
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 100;
+      line-height: 20px;
+      letter-spacing: 0.5px;
+      margin: 20px 0 30px;
+    }
+
+    button {
+      border-radius: 20px;
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: var(--text-light);
+      font-size: 12px;
+      font-weight: bold;
+      padding: 12px 45px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: transform 80ms ease-in;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    button.ghost {
+      background-color: transparent;
+      border-color: var(--text-light);
+    }
+
+    form {
+      background-color: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 50px;
+      height: 100%;
+      text-align: center;
+    }
+
+    input, textarea {
+      background-color: #eee;
+      border: none;
+      padding: 12px 15px;
+      margin: 8px 0;
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 60px;
+    }
+
+    .form-container {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      transition: var(--transition);
+    }
+
+    .login-container {
+      left: 0;
+      width: 50%;
+      z-index: 2;
+    }
+
+    .signup-container {
+      left: 0;
+      width: 50%;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .overlay-container {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      transition: transform 0.6s ease-in-out;
+      z-index: 100;
+    }
+
+    .overlay {
+      background: var(--gradient-primary, linear-gradient(to right, var(--primary-light), var(--primary)));
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 0 0;
+      color: var(--text-light);
+      position: relative;
+      left: -100%;
+      height: 100%;
+      width: 200%;
+      transform: translateX(0);
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .overlay-panel {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 40px;
+      text-align: center;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      transform: translateX(0);
+      transition: transform 0.6s ease-in-out;
+    }
+    
+    .overlay-panel h1 {
+        color: var(--text-light);
+    }
+
+    .overlay-left {
+      transform: translateX(-20%);
+    }
+
+    .overlay-right {
+      right: 0;
+      transform: translateX(0);
+    }
+
+    /* Animation States */
+    .auth-container.right-panel-active .login-container {
+      transform: translateX(100%);
+    }
+
+    .auth-container.right-panel-active .signup-container {
+      transform: translateX(100%);
+      opacity: 1;
+      z-index: 5;
+      animation: show 0.6s;
+    }
+
+    @keyframes show {
+      0%, 49.99% { opacity: 0; z-index: 1; }
+      50%, 100% { opacity: 1; z-index: 5; }
+    }
+
+    .auth-container.right-panel-active .overlay-container {
+      transform: translateX(-100%);
+    }
+
+    .auth-container.right-panel-active .overlay {
+      transform: translateX(50%);
+    }
+
+    .auth-container.right-panel-active .overlay-left {
+      transform: translateX(0);
+    }
+
+    .auth-container.right-panel-active .overlay-right {
+      transform: translateX(20%);
+    }
+    
+    .back-to-home {
+        margin-top: 20px;
+    }
+    .back-to-home a {
+        color: var(--text-light);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="auth-container" id="container">
+    <!-- Sign Up Form -->
+    <div class="form-container signup-container">
+      <form id="signupForm">
+        <h1>Create Account</h1>
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="text" name="contact" placeholder="Contact Number" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="address" placeholder="Address" required></textarea>
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+
+    <!-- Login Form -->
+    <div class="form-container login-container">
+      <form id="loginForm">
+        <h1>Login</h1>
+        <input type="text" name="identifier" placeholder="Email or Contact Number" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <!-- Overlay Panels -->
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start your journey with us</p>
+          <button class="ghost" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <p class="back-to-home">
+      <a href="homepage.html">← Back to Homepage</a>
+  </p>
+
+  <script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+
+    signUpButton.addEventListener('click', () => {
+      container.classList.add('right-panel-active');
+    });
+
+    signInButton.addEventListener('click', () => {
+      container.classList.remove('right-panel-active');
+    });
+
+    // Check URL for hash and activate signup panel if needed
+    if (window.location.hash === '#signup') {
+        container.classList.add('right-panel-active');
+    }
+
+    // --- Form Submission Logic (with fixed bugs) ---
+
+    loginForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      // Corrected: Use formData from the correct form
+      const formData = new FormData(loginForm); 
+      fetch("backend/login.php", {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.text())
+      .then(msg => {
+        alert(msg);
+        if (msg.trim().toLowerCase() === 'login successful') {
+            window.location.href = 'homepage.html';
+        }
+      });
+    });
+
+    signupForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      // Corrected: Use formData from the correct form
+      const formData = new FormData(signupForm);
+      fetch("backend/register.php", {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.text())
+      .then(msg => {
+        alert(msg);
+        // Redirect on successful registration
+        if (msg.trim().toLowerCase() === "success") {
+          window.location.href = "homepage.html"; 
+        }
+      });
+    });
+  </script>
+</body>
+</html>
