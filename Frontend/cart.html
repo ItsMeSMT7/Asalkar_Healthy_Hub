@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart - Asalkar Healthy Hub</title>
+</head>
+<body>
+  <h1>Your Cart</h1>
+  <div id="cart-items"></div>
+
+  <script>
+    async function fetchCart() {
+      const userEmail = localStorage.getItem("userEmail"); // or userId if you stored that
+
+      if (!userEmail) {
+        alert("You must login first");
+        return;
+      }
+
+      try {
+        const res = await fetch("http://localhost:8080/api/cart/" + userEmail);
+        const cart = await res.json();
+
+        if (!cart || !cart.items || cart.items.length === 0) {
+          document.getElementById("cart-items").innerHTML = "<p>Your cart is empty.</p>";
+          return;
+        }
+
+        let html = "";
+        for (let item of cart.items) {
+          html += `
+            <div style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+              <p><strong>Product ID:</strong> ${item.productId}</p>
+              <p><strong>Quantity:</strong> ${item.quantity}</p>
+            </div>
+          `;
+        }
+
+        document.getElementById("cart-items").innerHTML = html;
+      } catch (err) {
+        console.error("Failed to fetch cart:", err);
+        alert("Unable to fetch your cart right now.");
+      }
+    }
+
+    fetchCart();
+  </script>
+</body>
+</html>

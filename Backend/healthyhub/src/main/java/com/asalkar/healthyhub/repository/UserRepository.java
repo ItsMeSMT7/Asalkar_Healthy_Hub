@@ -1,11 +1,8 @@
 package com.asalkar.healthyhub.repository;
 
-import com.asalkar.healthyhub.entity.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.asalkar.healthyhub.model.User;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-import java.util.Optional;
-
-public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByEmail(String email);
-    boolean existsByEmail(String email);
+public interface UserRepository extends MongoRepository<User, String> {
+    User findByEmail(String email);
 }

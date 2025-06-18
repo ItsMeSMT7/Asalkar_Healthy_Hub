@@ -1,36 +1,24 @@
 package com.asalkar.healthyhub.controller;
 
-import com.asalkar.healthyhub.model.CartItem;
-import com.asalkar.healthyhub.model.User;
-import com.asalkar.healthyhub.repository.UserRepository;
+import com.asalkar.healthyhub.model.Cart;
+import com.asalkar.healthyhub.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/cart")
 public class CartController {
 
     @Autowired
-    private UserRepository userRepository;
+    private CartRepository cartRepository;
 
-    @PostMapping("/add/{email}")
-    public String addItemToCart(@PathVariable String email, @RequestBody CartItem item) {
-        Optional<User> optionalUser = userRepository.findByEmail(email);
-        if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
-            user.getCart().add(item);
-            userRepository.save(user);
-            return "Item added to cart!";
-        } else {
-            return "User not found.";
-        }
+    @PostMapping("/add")
+    public Cart addToCart(@RequestBody Cart cart) {
+        return cartRepository.save(cart);
     }
 
-    @GetMapping("/{email}")
-    public Object viewCart(@PathVariable String email) {
-        Optional<User> optionalUser = userRepository.findByEmail(email);
-        return optionalUser.map(User::getCart).orElse("User not found.");
+    @GetMapping("/{userId}")
+    public Cart getCart(@PathVariable String userId) {
+        return cartRepository.findByUserId(userId);
     }
 }
